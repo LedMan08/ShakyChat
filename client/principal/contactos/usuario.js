@@ -1,16 +1,20 @@
-Template.chat.helpers({
+ Template.usuario.helpers({
 	/*isUserLogin(){
 		return !!Accounts.userId();
 	},
-	ready(){
+	readyConect(){
 		return FlowRouter.subsReady("loadMsn")&&FlowRouter.subsReady("loadUsers");
 	},*/
-	msnList(){
-		return CHAT.find({},{sort:["desc"]});
+	Conect(){
+		var logUsuario=Accounts.users.findOne({_id:this._id});
+		//console.log(logUsuario.profile.username);
+		return logUsuario.profile.username;
+	},
+	UsLogin(){
+		return Meteor.users.find();
 	}
 });
-
-Template.chat.events({
+ /*Template.chat.events({
 	'submit .chatformMess':function(event){
 		event.preventDefault();
 		var mensaje = event.target.msn.value;
@@ -21,5 +25,11 @@ Template.chat.events({
 		//alert(Meteor.user().profile.username);
 	}
 
-})
-
+})*/
+/*
+Tempalte.usuario.events({
+	'click #UsButton':function(event){
+		event.preventDefault();
+			FlowRouter.go("chat");
+	}
+});*/

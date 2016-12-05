@@ -2,6 +2,7 @@
 	<div class="messages msg_sent">
 		<p>{{message}}</p>	
 		<time datetime="2009-11-13T20:00">{{date}}</time>
+        <p class="userDato">{{username}}</p> 
 	</div>
 </template>
 <template name="chat">
@@ -28,7 +29,8 @@
                         	
                         	<div class="col-md-10 col-xs-10">
                             	<div class="messages msg_sent">
-                                	{{> msnItems}}                               
+                                	{{> msnItems}}
+
                             	</div>
                         	</div>
                         	<div class="col-md-2 col-xs-2 avatar">

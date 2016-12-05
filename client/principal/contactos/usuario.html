@@ -1,0 +1,14 @@
+ <template name="usuario">
+	<b>
+		AMIGOS
+	</b>
+	<div class="mainChatStyles">
+		<ul class="list-group">
+			{{#each UsLogin}}
+				<div>
+					<button type="button" id="UsButton" class="btn btn-info active">{{Conect}}</button>
+				</div>	
+			{{/each}}
+		</ul>	
+	</div>
+</template>

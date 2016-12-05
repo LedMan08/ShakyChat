@@ -83,8 +83,8 @@ footer {
 .modal-content{
   max-width: 5% ;
   min-width: 60%;
-}
 
+}
 
 /*estilos del chat*/
 /*body{
@@ -222,6 +222,12 @@ img {
   background-color:black;
   color: white;
 
+}
+#UsButton{
+  background-color: ;
+  font-size: 20px;
+  width: 220px;
+  text-align: left;
 }
 /*
 .btn-group.dropup{

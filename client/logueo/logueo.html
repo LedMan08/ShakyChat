@@ -1,16 +1,19 @@
-<template name="logueo"> 
-	
+<template name="logueo">
+		<BR/>
 	<div>
-		<form action="principal" method="POST" role="form" class="">
-		<center><legend >INGRESE SUS DATOS DE USUARIO</legend></center>
-		<div class="form-group">
-			<h3>Nombre de Usuario:</h3> <input type="email" class="form-control" id="" placeholder="Ingrese nombre de Usuario(correo elctronico ejem. luis@gmail.com)" required/>
-			<h3>Contraseña:</h3> <input type="password" class="form-control" id="" placeholder="Ingrese sus contraseña" required/>
+		<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<img class="navbar-brand " src="img/chat.png" style="width: 100px; height: 80px;">
+			<ul class="nav navbar-nav pull-right">
+				<li class="active">{{>logUsuario}}</li>
+				<!--<li class="nav navbar-nav navbar-center">{{>loginButtons}}</li>-->
+				<li class="active"><a href="#Registrate">{{>modal}}</a></li>
+
+			</ul>
+			
 		</div>
-		<button type="submit" class="btn btn-primary" name="loginicio">Ingresar</button>
-		</form>
+		</nav>
 	</div>
-	<BR/><BR/>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 	 <!-- Indicadores, numero de imagenes a colocar-->
 	 	<ol class="carousel-indicators">
@@ -21,10 +24,11 @@
 	  	</ol>
 	<!-- las imagenes en el carusel -->
 	 	<div class="carousel-inner" role="listbox">
-	    	<div class="item active"> <img src="img/compu.jpg" alt="Chania"> </div>
+	    	<div class="item active"><img src="img/bolivia.jpg" alt="Chania"></div>
+	    	<div class="item"> <img src="img/bh.jpg" alt="Chania"> </div>
+	    	<div class="item"> <img src="img/compu.jpg" alt="Chania" > </div>
 	    	<div class="item"> <img src="img/chamaco.jpg" alt="Chania"> </div>
-	    	<div class="item"> <img src="img/compu.jpg" alt="Flower"> </div>
-	    	<div class="item"> <img src="img/chamaco.jpg" alt="Flower"> </div>
+	    	<div class="item"> <img src="img/verd.jpg" alt="chania"> </div>
 	  	</div>
 	<!-- control de deslizado izquierda y derecha -->
 	  	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -38,12 +42,15 @@
 	  	
 	  	<div class="container">
 		<div class="carousel-caption" id="loguear">
-			<h1>ShakyChat.</h1>
-			<p>Disfruta conociendo amigos en todo el mundo.</p>
-			<p><a class="btn btn-lg btn-primary" href="#" role="button">{{>loginButtons align="center"}}</a></p>
+			<h1 style="">ShakyChat.</h1>
+			<p >Disfruta conociendo amigos en todo el mundo.</p>
+			
 		</div>
 	</div>
 	</div>
+	<!--<div>{{>nuevoform}}</div>-->	 
 	
-
 </template>
+
+
+

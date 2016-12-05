@@ -1,6 +1,14 @@
 <template name="inicio">
-	<main>
-		{{>Template.dynamic template = content}}
-	</main>
 	
+	<main>
+		{{#if currentUser}}
+			{{#if loading}}
+				<div id="list">Loading...</div>
+			{{else}}
+				{{> principal}}
+			{{/if}}	
+		{{else}}
+			{{>logueo}}
+		{{/if}}
+	</main>
 </template>  

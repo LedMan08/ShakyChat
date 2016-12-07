@@ -1,3 +1,26 @@
+var UsChat = new ReactiveVar(false); 
+Template.usuario.events({
+    "click #UsButton":function(e){
+
+        e.preventDefault();
+        var logUsuario=Accounts.users.findOne({_id:this._id});
+        //console.log(logUsuario.profile.username);
+        
+
+        alert(logUsuario.profile.username);
+        //alert(UsChat);
+        UsChat.set(true);
+    }
+
+ });
+Template.principal.helpers({
+    showUs(){
+        return UsChat.get();
+    },
+    usuA(){
+        return Meteor.user().profile.username;
+    }
+});
 $(document).on('click', '.panel-heading span.icon_minim', function (e) {
     var $this = $(this);
     if (!$this.hasClass('panel-collapsed')) {
@@ -29,6 +52,7 @@ $(document).on('focus', '.panel-footer input.chat_input', function (e) {
 $(document).on('click', '.icon_close', function (e) {
     //$(this).parent().parent().parent().parent().remove();
     $( "#chat_window_1" ).remove();
+    UsChat.set(false);
 });
 
 

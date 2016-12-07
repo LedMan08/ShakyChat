@@ -7,4 +7,11 @@ Meteor.startup(() => {
 	Meteor.publish("getUsers",function(){
 		return Meteor.users.find();
 	});
+	//publicaion para la base de datos POSTS
+	Meteor.publish("getPublic",function(){
+		return POSTS.find();
+	});
+	Meteor.publish("getComent",function(){
+		return COMENTS.find();
+	});
 });

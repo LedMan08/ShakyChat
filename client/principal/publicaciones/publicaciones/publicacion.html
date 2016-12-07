@@ -1,0 +1,84 @@
+<template name="publicacion">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<div class="panel panel-default">
+					
+						<ul id="formulario">
+							<li>
+								<img src="{{URL}}" width="200px">
+							</li>
+					  		<li>
+				  				{{> upload_bootstrap}}	  			
+					  		</li>
+					  		<li>
+					  			<form action="" method="POST" role="form" id="formpublic">
+					  				<ul align="right">
+					  					<li >
+					  						<div class="form-group">
+						  						<input type="hidden" value="{{URL}}" name="images">
+						  						<textarea name="text" id="input" class="form-control" rows="3" placeholder="¿Que estas pensando?"></textarea>
+						  						<button type="submit" id="btnsend" class="btn btn-primary"> PUBLICAR <span class="glyphicon glyphicon-share"></span></button>
+							  					 
+							  				</div>
+
+					  					</li>
+					  				</ul>
+					  			</form>
+					  		</li>
+					  				  		
+					  	</ul>
+					
+				</div>
+			  	<ul>
+			  		{{#each DATOS}}
+				  	<li>
+				  		{{>item}}
+
+				  	</li>
+				  	{{/each}}
+
+			  	</ul>
+</template>
+
+<template name="item">
+	<div class="panel panel-default" id="retrato">
+		<div class="panel-body">
+			<ul>
+				<li>
+					<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+						<a><span class="glyphicon glyphicon-user"> <em><big><b> {{itemName user}} </b></big></em></span>
+					</a>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
+						<a href="" id="removePublicacion"><span class="glyphicon glyphicon-remove"></span> Eliminar </a> 
+					</div>
+					<li>				
+						<span class="glyphicon glyphicon-time"></span> {{date}}
+					</li>
+				</li>
+				<li align="left">
+					<h2 style="color: blue; font-variant-ligatures: FreeMono">{{text}}</h2>
+					<img src="{{images}}" width="400px" alt=""><br>
+				</li>
+				<hr>
+				<li>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+						<a id="like" href=""> {{counter}} <span class="glyphicon glyphicon-thumbs-up"> </span> Me gusta  </a>	
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+						<a data-toggle="collapse" href="#collapse-{{_id}}" id="coment"> <span class="glyphicon glyphicon-comment"></span>  Comentar </a>
+					</div>
+					<br>		
+				</li>
+				<br>
+				<li>
+					<div id="collapse-{{_id}}" class="panel-collapse collapse">
+						{{>ComentsForm}}
+					</div>
+					
+				</li>
+							
+			</ul>
+		</div>
+	</div>
+</template>

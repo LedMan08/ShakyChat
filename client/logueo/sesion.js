@@ -20,9 +20,9 @@ Template.modal.events({
 		    	}
 		    	else{
 		    		alert("Usuario registrado correctamente");
+		    		$("#modal-id").modal("hide");
 		    		document.getElementById("registro-form").reset();
 		    		
-		    		//document.getElementById("registro-form").modal("toggle");
 		    		//FlowRouter.go("/principal");
 		    		//$('[data-dismiss=modal]');
 		    	}

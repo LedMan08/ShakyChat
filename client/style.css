@@ -1,4 +1,11 @@
 /*ESTILOS DE LA PAJINA PRINCIPAL*/
+body{
+  /*background-color:#0e326d;*/
+  background: url("/img/fondo2.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
@@ -41,6 +48,10 @@ footer {
 .navbar-brand{
   background-color: white;
   
+}
+#loguear{
+  color:;
+  font-size: 30px;
 }
 /*estilo del formulario de logueo*/
 .usuc{
@@ -107,6 +118,12 @@ footer {
     float:right;
     margin-left:10px;
     overflow:hidden;
+
+}
+#chatid{
+  float: left;
+  position: left;
+
 }
 .chat-window > div > .panel{
     border-radius: 5px 5px 0 0;
@@ -122,8 +139,6 @@ footer {
   max-height:300px;
   overflow-x:hidden;
   overflow: fixed;
-   
-
 }
 .top-bar {
   background: #666;
@@ -236,3 +251,33 @@ img {
     bottom:200px;
     
 }*/
+estilos de las publicaciones :);
+    
+}*/
+#retrato{
+  background: url("/img/images.jpg");
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #ffffff;
+  opacity: 1;
+  background-repeat: no-repeat;
+    background-position: center center;
+  background-size: cover;
+ }
+/*
+estilos de las publicaciones su fondo :);
+    
+}*/
+ .panel-bodyy{
+  background: url("/img/mur2.jpg");
+
+}
+/*body{
+  
+  background: url("/img/mur2.jpg");
+  background-repeat: no-repeat;
+    background-position: center center;
+  background-size: cover;
+}*/
+ul{
+  list-style:none; 
+}

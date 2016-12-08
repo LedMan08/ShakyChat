@@ -16,7 +16,7 @@ Template.ComentsForm.events({
 Template.itemComents.helpers({
   itemC(user){
     var usuario = Accounts.users.findOne({_id:user});
-    return usuario.username+' '+usuario.profile.fullname;
+    return usuario.profile.username;
     console.log(this);
   }
 });
@@ -34,7 +34,7 @@ Template.itemComents.events({
 	},
 	'click #deleteComent': function(e) {
     e.preventDefault();
-    if (confirm("¿Seguro que deseas eliminar este comentario?")) {
+    if (confirm("¿desea eliminar la publicacion?")) {
       var deleteComent = this._id;
       COMENTS.remove({_id:deleteComent});
     }

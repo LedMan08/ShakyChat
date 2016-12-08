@@ -1,14 +1,19 @@
+URL=new ReactiveVar("");
+Uploader.finished=function(index, fileInfo, templateContex){
+  URL.set(fileInfo.url);
+  //console.log(fileInfo);
+};
 Template.publicacion.helpers({
-	DATOS:POSTS.find({}, {sort: [ ["date", "desc"] ] }),
+  DATOS:POSTS.find({}, {sort: [ ["date", "desc"] ] }),
   URL(){
     return URL.get();
-  }
-});
+  },
+ });
 
 Template.publicacion.events({
-	"click #btnsend":function(e){
-		e.preventDefault();
-		var r=$("#formpublic").serializeObject();
+  "click #btnsend":function(e){
+    e.preventDefault();
+    var r=$("#formpublic").serializeObject();
     if(r.text||r.images){
       POSTS.insert(r);
       $("#input").val("");
@@ -20,9 +25,9 @@ Template.publicacion.events({
     {
       alert("Debes introducir un estado o una imagen para poder PUBLICAR");
     }
-		
+    
     //console.log(r);*/
-	}
+  }
 });
 //Codigo like dislike
 Template.item.onCreated(function helloOnCreated() {
@@ -35,7 +40,7 @@ Template.item.helpers({
   },
   itemName(user){
     var usuario = Accounts.users.findOne({_id:user});
-    return usuario.username+' '+usuario.profile.fullname;
+    return usuario.profile.username;
   }
 });
 Template.item.events({
@@ -64,7 +69,7 @@ Template.publicacion.helpers({
   autor:function(){
     if(Accounts.user().profile.name!=undefined)
     {
-      return Accounts.user().profile.name;
+      return Accounts.user().profile.username;
     }else{
       return Accounts.user().username;
     }
@@ -75,7 +80,7 @@ Template.item.helpers({
   texto:function(){
     if(Accounts.user().profile.name!=undefined)
     {
-      return Accounts.user().profile.name;
+      return Accounts.user().profile.username;
     }else{
       return Accounts.user().username;
     }
@@ -83,12 +88,12 @@ Template.item.helpers({
 });
 Template.item.helpers({
   fullname:function(){
-    if(Accounts.user().profile.fullname==undefined)
+    if(Accounts.user().profile.username==undefined)
     {
       return "jeje";
     }else{
       
-      return Accounts.user().profile.fullname;
+      return Accounts.user().profile.username;
     }
   }
 });
@@ -98,7 +103,7 @@ Template.item.events({
   },
   'click #removePublicacion': function(e) {
     e.preventDefault();
-    if (confirm("¿Seguro que deseas eliminar la publicación?")) {
+    if (confirm("¿desea eliminar la publicacion?")) {
       var deletePublic = this._id;
       POSTS.remove({_id:deletePublic});
     }

@@ -1,5 +1,6 @@
 
 <template name="logUsuario"> 
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <form class="sesion-usuario" action="" method="POST" role="form">
     <div class="log">
       <label for="email" >Usuario:</label><input class="usuc" name="us" type="email" id="us" value="" required>
@@ -20,6 +21,7 @@
             <h4 class="modal-title" >Bienvenido... Registrate ya.</h4>
           </div>
           <div class="modal-body">
+            <div>{{>index}}</div>
             <legend class="datUsuario">Datos del Usuario</legend>
             <p class="lineaparrafo"></p>             
             <div class="form-group">
@@ -31,15 +33,33 @@
               <input name="PassUs" type="password" class="form-control" id="" placeholder="Contraseña nueva" required oninvalid="setCustomValidity('La contraseña debe tener mas de 4 caracteres')" oninput="setCustomValidity('')" pattern=".{4,}">
               <label for="">Confirmar contraseña</label>
               <input name="PassUsR" type="Password" class="form-control" id="" placeholder="Repita la contraseña" required >    
-              
+              <div class="g-recaptcha" data-sitekey="6LftawkUAAAAAPvwAnXpUkvuSVRcDeQpkoOGarSz" data-theme="light"></div>
             </div>
           </div>
           <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
                 <button type="submit" id="gdatos" class="btn btn-primary" href="">Guardar Datos</button>
           </div>
+          
         </div>
+
       </div>
     </div>
   </form>
+</template>
+<template name="index">
+  
+  <div class="">
+    <div class="cuentas">
+          <button data-social-login="loginWithFacebook" type="button" class="btn btn-primary">
+            <i class="fa fa-facebook"></i>Facebook
+          </button>
+          <button data-social-login="loginWithGoogle" type="button" class="btn btn-primary">
+            <i class="fa fa-google"></i>Google
+          </button>
+          <button data-social-login="loginWithTwitter" type="button" class="btn btn-primary">
+            <i class="fa fa-twitter"></i>Twitter
+          </button>
+    </div>
+  </div>
 </template>

@@ -8,12 +8,12 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">SHAKYCHAT</a>
+		      <a class="navbar-brand" href="#" id="princi">SHAKYCHAT</a>
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      	<ul class="nav navbar-nav">
 			        <!--<li class="active"><a href="#">Home</a></li>-->
-			        <li class="active"><a href="#">{{usuA}}</a></li>
+			        <li class="active"><a href="#" id="perfil">{{usuA}}</a></li>
 			        <li class="active"><a>{{> salir}}</a></li> 
 		      	</ul>
 		      	<form action="" class="navbar-form navbar-right" role="search">
@@ -33,22 +33,30 @@
 		    <div class="col-sm-2 sidenav">
 		    	<p><a href="#">Grupos</a></p>
 		    </div>
-		    <div class="col-sm-8 text-left">
-		    	<h1></h1>
+		    <div class="col-sm-7 text-left" id="divGrid" style="overflow:auto; height: 850px; ">
+						  
+		     	<p>
+		     	{{#if control}}
+		     		{{>Perfil}}
+		     	{{else}}
+		     		{{>publicacion}}
+		     	{{/if }}
+		     	</p>
 
-		     	<p>{{>publicacion}}</p>
-
-		        <p id="chatid">
+		       <!-- <p id="chatid">
 	            	{{#if showUs}}
 						{{>chat}}
 					{{/if}}
-	            </p>	
+	            </p>-->	
 	         
 		    </div>
-		    <div class="col-sm-2 sidenav">
+		    <div class="col-sm-3 sidenav">
 		      <div class="well">
-		        <!--<p>CHAT</p>-->
-		        <p>{{>usuario}}</p>
+		        <!--<p>CHAT</p>
+		        <p>{{>usuario}}</p>-->
+		        	<div>{{> sidebar }}</div>
+		        	{{> input }}
+        			{{> messages }}
 		      </div>
 		    </div>
 		</div>

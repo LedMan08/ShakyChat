@@ -8,11 +8,10 @@ Template.modal.events({
 		var	passRep=event.target.PassUsR.value;
 		if(password==passRep){
 			Accounts.createUser({
+		        username:usuario,
 		        email: email,
-		        password: password,
-		        profile: {
-		        	username:usuario
-		        }
+		        password: password
+		        
 		    }, function(err){
 		    	if(err){
 		    		console.log("error de autenticacion");
@@ -42,7 +41,7 @@ Template.logUsuario.events({
 		var logPass=$('[name=pass]').val();
         Meteor.loginWithPassword(logUs, logPass,function(error){
         	if(error){
-        		alert(error.reason);
+        		alert("REGISTRO NO ENCONTRADO, VERIFIQUE USUARIO O CONTRASEÑA");
         	}
         });
         
@@ -53,7 +52,7 @@ Template.salir.events({
         event.preventDefault();
         FlowRouter.go("/");
         Meteor.logout();
-
+        controlTem.set(false);
     }
 });
 Template.logUsuario.helpers({

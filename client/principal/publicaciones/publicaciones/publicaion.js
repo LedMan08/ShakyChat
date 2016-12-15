@@ -40,7 +40,7 @@ Template.item.helpers({
   },
   itemName(user){
     var usuario = Accounts.users.findOne({_id:user});
-    return usuario.profile.username;
+    return usuario.username;
   }
 });
 Template.item.events({
@@ -67,9 +67,9 @@ Template.item.events({
 });
 Template.publicacion.helpers({
   autor:function(){
-    if(Accounts.user().profile.name!=undefined)
+    if(Accounts.user().name!=undefined)
     {
-      return Accounts.user().profile.username;
+      return Accounts.user().username;
     }else{
       return Accounts.user().username;
     }
@@ -78,9 +78,9 @@ Template.publicacion.helpers({
 //--->nombre a las publicaciones
 Template.item.helpers({
   texto:function(){
-    if(Accounts.user().profile.name!=undefined)
+    if(Accounts.user().name!=undefined)
     {
-      return Accounts.user().profile.username;
+      return Accounts.user().username;
     }else{
       return Accounts.user().username;
     }
@@ -88,12 +88,12 @@ Template.item.helpers({
 });
 Template.item.helpers({
   fullname:function(){
-    if(Accounts.user().profile.username==undefined)
+    if(Accounts.user().username==undefined)
     {
       return "jeje";
     }else{
       
-      return Accounts.user().profile.username;
+      return Accounts.user().username;
     }
   }
 });

@@ -24,7 +24,10 @@
                 	</div>
                 	
                 	<div class="panel-body msg_container_base">
-                		{{#each msnList}}	
+                        
+                    
+                		
+                        {{#each msnList}}	
                     	<div class="row msg_container base_sent">
                         	
                         	<div class="col-md-10 col-xs-10">
@@ -65,4 +68,32 @@
         </ul>
     </div>
     -->
+</template>
+<!--CHAT DEL USUARIO DINAMICO-->
+
+<template name="sidebar">
+    <p class="conusur">U S U A R I O S<br>   E N <br>  C O N T A C T O</p>
+    <div id="sidebar-wrapper" class="fonduser">
+        <ul class="sidebar-nav onlUsers">               
+            {{#each onlusr}}
+                <li class="user"><span class="glyphicon glyphicon-user"></span><a href='#'> {{username}}</a></li>
+            {{/each}}
+        </ul>
+
+    </div>
+</template>
+
+<template name="messages">
+<p id="elusuario">{{usuActo}}</p>
+  <br>
+  <p class="chatus">
+  {{#each msgs}}
+    <p id="unchat"><strong id="namechat">{{name}}:</strong> {{text}}<br></p>
+  {{/each}}
+  </p>
+</template>
+
+<template name="input">
+    
+  <p id="mess">MENSAJE:</p><input type="text" id="message"><br>
 </template>

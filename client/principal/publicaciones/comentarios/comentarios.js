@@ -16,7 +16,7 @@ Template.ComentsForm.events({
 Template.itemComents.helpers({
   itemC(user){
     var usuario = Accounts.users.findOne({_id:user});
-    return usuario.profile.username;
+    return usuario.username;
     console.log(this);
   }
 });

@@ -1,7 +1,7 @@
 <template name="publicacion">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<div class="panel panel-default">
+	<div class="panel panel-default" id="publicCont">
 					
 						<ul id="formulario">
 							<li>
@@ -68,7 +68,10 @@
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
 						<a data-toggle="collapse" href="#collapse-{{_id}}" id="coment"> <span class="glyphicon glyphicon-comment"></span>  Comentar </a>
 					</div>
-					<br>		
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+						<a data-toggle="collapse" href="#collapse-{{_id}}" id="coment"> <span class="glyphicon glyphicon-share-alt"></span>  Compartir </a>
+					</div>
+					<br>	
 				</li>
 				<br>
 				<li>

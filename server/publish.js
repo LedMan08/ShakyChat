@@ -20,4 +20,7 @@ Meteor.startup(() => {
 	Meteor.publish("getComent",function(){
 		return COMENTS.find();
 	});
+	Meteor.publish("getPerfil",function(id){
+		return PERFIL.find({user:id});
+	});
 });

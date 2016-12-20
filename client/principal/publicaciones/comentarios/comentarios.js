@@ -11,7 +11,7 @@ Template.ComentsForm.events({
 		dato.edit = false;
 		COMENTS.insert(dato);
 		$(".para-texto").val("");
-	}
+	},
 });
 Template.itemComents.helpers({
   itemC(user){
@@ -23,8 +23,14 @@ Template.itemComents.helpers({
 Template.itemComents.events({
 	"click #editComent" : function(e)
 	{
-		e.preventDefault();
-		COMENTS.update({_id:this._id},{$set:{edit:true}});
+		if (this.user==Meteor.user()._id){
+			e.preventDefault();
+			COMENTS.update({_id:this._id},{$set:{edit:true}});	
+		}
+		else{
+			alert("Usted no puede editar este mensaje");
+		}
+		
 	},
 	"click #btnedit" : function(e){
 		e.preventDefault();
@@ -32,11 +38,25 @@ Template.itemComents.events({
 		_.extend(r,{edit:false});
 		COMENTS.update({_id:this._id},{$set:{text:r.text,edit:r.edit}});
 	},
+	/*'click #deleteComent': function(event,template) {
+    	// console.log(this._id);
+    	//console.log(this.user);
+    	
+    	Meteor.call('coments.remove',this._id);
+    }*/
 	'click #deleteComent': function(e) {
     e.preventDefault();
-    if (confirm("¿desea eliminar la publicacion?")) {
-      var deleteComent = this._id;
-      COMENTS.remove({_id:deleteComent});
+    	if (this.user==Meteor.user()._id) {
+    		//console.log(this.user);
+    		//console.log(Meteor.user()._id);
+    		if (confirm("¿desea eliminar la publicacion?")) {
+	      		var deleteComent = this._id;
+	      		COMENTS.remove({_id:deleteComent});
+	    	}
+		}
+		else{
+			alert("Usted no Puede Eliminar este mensaje");
+		}
     }
-  }
+	   
 });

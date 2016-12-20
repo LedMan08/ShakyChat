@@ -1,30 +1,3 @@
-/*
-Template.chat.helpers({
-	/*isUserLogin(){
-		return !!Accounts.userId();
-	},
-	ready(){
-		return FlowRouter.subsReady("loadMsn")&&FlowRouter.subsReady("loadUsers");
-	},//
-	msnList(){
-		return CHAT.find({},{sort:["desc"]});
-	}
-});
-
-Template.chat.events({
-	'submit .chatformMess':function(event){
-		event.preventDefault();
-		var mensaje = event.target.msn.value;
-		//alert(mensaje);
-		CHAT.insert({message:mensaje,date:new Date()});    
-		event.target.msn.value="";
-		//alert(Accounts.userId();
-		//alert(Meteor.user().profile.username);
-	}
-
-})
-*/
-
 Accounts.ui.config({
    passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
@@ -37,7 +10,6 @@ Template.sidebar.helpers({
     'onlusr':function(){
         return Meteor.users.find({ "status.online": true , _id: {$ne: Meteor.userId()} });
     }
-
 });
 var usuario = new ReactiveVar(); 
 //usuario ="holasasdad"; 
@@ -59,7 +31,8 @@ Template.sidebar.events({
         }
         var logUsuario=Accounts.users.findOne({_id:this._id});
         usuario.set(logUsuario.username);
-        //alert(usuario);
+
+        alert(usuario);
     }
        
     
@@ -68,7 +41,9 @@ Template.sidebar.events({
 Template.messages.helpers({
     'msgs':function(){
         var result=ChatRooms.findOne({_id:Session.get('roomid')});
+
         if(result){
+
           return result.messages;
         }
     },
@@ -79,6 +54,7 @@ Template.messages.helpers({
 
 Template.input.events = {
   'keydown input#message' : function (event) {
+    alert(event.which);
     if (event.which == 13) { 
         if (Meteor.user())
         {

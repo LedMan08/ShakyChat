@@ -103,9 +103,17 @@ Template.item.events({
   },
   'click #removePublicacion': function(e) {
     e.preventDefault();
-    if (confirm("¿desea eliminar la publicacion?")) {
-      var deletePublic = this._id;
-      POSTS.remove({_id:deletePublic});
+    //console.log(this.user);
+    //console.log(Meteor.user()._id);
+    if (this.user==Meteor.user()._id){
+      
+      if (confirm("¿desea eliminar la publicacion?")) {
+        var deletePublic = this._id;
+        POSTS.remove({_id:deletePublic});
+      }
+    }
+    else{
+      alert("Usted no puede Eliminaar esta publicaion");
     }
   }
 });

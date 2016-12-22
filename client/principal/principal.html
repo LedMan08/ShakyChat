@@ -16,15 +16,33 @@
 			        <li class="active"><a href="#" id="perfil">{{usuA}}</a></li>
 			        <li class="active"><a>{{> salir}}</a></li> 
 		      	</ul>
-		      	<form action="" class="navbar-form navbar-right" role="search">
-			        <div class="form-group">
-			      	  <input type="text" class="form-control" placeholder="buscar">
+		      	<form action="" class="navbar-form navbar-right" role ="Search"> 
 
-			        </div>
-			        <button type="submit" class="btn btn-primary">
-			          <span class="glyphicon glyphicon-search"></span>
-			        </button>
-		      	</form>
+  					<input type="text" class="form-control" id="searchUser" placeholder="buscar a un usuario">
+
+  					<button type="submit" class="btn btn-info">Search</button>
+
+				</form> 
+				{{#if foundUser}}
+
+  <div class="found-user">
+
+    <button type="button" class="btn btn-default" id="follow">encontrado a "{{foundUser.username}}"desea agregarlo</button>
+
+  </div>
+
+{{/if}}
+<div class="recommend-users"> 
+
+  <h5>Who to follow:</h5>
+
+  {{#each recommendedUsers}}
+
+    <button type="button" class="btn btn-default" id="followRec">Follow @{{this.username}}</button>
+
+  {{/each}}
+
+</div>
 		    </div>
 		   
 		</div>
@@ -33,14 +51,20 @@
 	<div class="container-fluid text-center">
 		<div class="row content">
 	     	{{#if control}}
-	     		<div class="col-sm-9 text-left" id="divGrid" style="overflow:auto; height: 850px; ">
+	     		<div class="col-sm-9 text-left" id="divGrid" style="overflow-x:hidden; height: 850px; ">
 	     		{{>Perfil}}
 	     		</div>
 	     	{{else}}
+	     		<div class="col-sm-1" >
+	     		</div>
 	     		<div class="col-sm-2 sidenav">
 			    	<p><a href="#">Grupos</a></p>
+			    	<img src="img/grupo1.jpg" >
+			    	<img src="img/grupo2.jpg" >
+			    	<img src="img/grupo3.jpg" >
+			    	<p> </p>
 			    </div>
-	     		<div class="col-sm-7 text-left" id="divGrid" style="overflow:auto; height: 850px; ">
+	     		<div class="col-sm-6 text-left" id="divGrid" style="overflow:auto; height: 850px; ">
 	     		{{>publicacion}}
 	     		</div>
 	     	{{/if }} 	
@@ -49,7 +73,7 @@
 						{{>chat}}
 					{{/if}}
 	            </p>-->	
-		    <div class="col-sm-3 sidenav">
+		    <div class="col-sm-2 sidenav">
 		      <div class="well">
 		        <!--<p>CHAT</p>
 		        <p>{{>usuario}}</p>-->
@@ -58,10 +82,13 @@
         			{{> messages }}
 		      </div>
 		    </div>
+		    <div class="col-sm-1 ">
+		    </div>
 		</div>
 	</div>
 	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
+		<p>Potosi Bolivia 2016</p>
+		<p style="font-style: italic;">CopyRight@todos los derechos reservados...</p>
 		
 	</footer>	
 </template>

@@ -466,3 +466,41 @@ tbody tr:nth-child(odd) {
   padding: 10px;
   margin:10px; 
 }
+
+/*editar datos*/
+
+/*templete modal en plantillasLogin*/
+.modal-body{
+  color:white;
+  font-family: "Times New Roman", Georgia, Serif;
+  background-color: black;
+  font-size: 70%;
+}
+.datUsuario{
+  color:white;
+}
+.modal-title{
+  color:blue;
+  font-family: "Arial", serif;
+  font-size: x-large;
+}
+.lineaparrafo{
+  background-color: white;
+  height: 1px;
+  width: 100%;
+}
+.modal-content{
+  max-width: 5% ;
+  min-width: 60%;
+
+}
+
+#perfilfot{
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #ffffff;
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+}

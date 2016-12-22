@@ -4,6 +4,7 @@ Accounts.ui.config({
 Tracker.autorun(function(){
     Meteor.subscribe("chatrooms");
     Meteor.subscribe("onlusers");
+    Meteor.subscribe("getPerfil");
 });
 
 Template.sidebar.helpers({
@@ -32,7 +33,7 @@ Template.sidebar.events({
         var logUsuario=Accounts.users.findOne({_id:this._id});
         usuario.set(logUsuario.username);
 
-        alert(usuario);
+        //alert(usuario);
     }
        
     
@@ -54,7 +55,7 @@ Template.messages.helpers({
 
 Template.input.events = {
   'keydown input#message' : function (event) {
-    alert(event.which);
+    //alert(event.which);
     if (event.which == 13) { 
         if (Meteor.user())
         {
@@ -79,3 +80,4 @@ Template.input.events = {
     }
   }
 }
+  

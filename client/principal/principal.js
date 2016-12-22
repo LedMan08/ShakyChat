@@ -26,7 +26,34 @@ Template.principal.events({
         e.preventDefault();
         //alert('tu pajina principal');
         controlTem.set(false);
-    }
+    },
+    'submit form': function(event) {
+
+    var searchUser = event.target.searchUser.value;
+
+
+
+    var foundUser = Meteor.call('findUser', searchUser, function(err, res) {
+    
+
+      if (res) Session.set('foundUser', res);
+
+    });
+
+    return false;
+
+    },
+     'click #follow': function() {
+
+    Meteor.call('followUser', Session.get('foundUser').username);
+    alert(followus)
+
+  },
+  'click #followRec': function(event) {
+
+    Meteor.call('followUser', this.username);
+
+  }
  });
 Template.principal.helpers({
     showUs(){
@@ -37,7 +64,27 @@ Template.principal.helpers({
     },
     control(){
         return controlTem.get();
-    }
+    },
+     'foundUser': function() {
+
+    return Session.get('foundUser');
+
+  },
+   'recommendedUsers': function() {
+
+    return Session.get('recommendedUsers');
+
+  }
+
+});
+Template.principal.onRendered(function () { 
+
+  Meteor.call('recommendUsers', function(err, res) {
+
+    Session.set('recommendedUsers', res);
+
+  });
+
 });
 
 

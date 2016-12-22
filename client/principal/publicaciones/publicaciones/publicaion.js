@@ -16,6 +16,7 @@ Template.publicacion.events({
     var r=$("#formpublic").serializeObject();
     if(r.text||r.images){
       POSTS.insert(r);
+
       $("#input").val("");
       $("#formulario li").find("img").attr("src","");
       $('.done').click();
@@ -28,6 +29,7 @@ Template.publicacion.events({
     
     //console.log(r);*/
   }
+
 });
 //Codigo like dislike
 Template.item.onCreated(function helloOnCreated() {
@@ -43,13 +45,42 @@ Template.item.helpers({
     return usuario.username;
   }
 });
+// 
+//var mylikes = new ReactiveVar(true)
 Template.item.events({
-  'click #like'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
+  'click #like':function(e){
+    e.preventDefault();
+    Meteor.call("addlike",this._id,function(error,result){
+      if(result){
+        alert("like");   
+        document.getElementById("like").disabled = true;
+        document.getElementById("like").style.color = " #F0F8FF";
+        document.getElementById("nolike").style.color = " blue";
+        document.getElementById("nolike").disabled = false;
+      }
+    });
   },
+  'click #nolike':function(e){
+    e.preventDefault();
+   var a=this._id;
+    
+    Meteor.call("removelike",this._id,function(error,result){
+      if(result){
+         document.getElementById("like").disabled = false;
+          document.getElementById("nolike").style.color = " #F0F8FF";
+          document.getElementById("like").style.color = " blue";
+          document.getElementById("nolike").disabled = true;
+          alert("no te gusta");   
+       }
+    });
+  }
 });
-
+/*Template.item.events({
+  "mylikes":function(){ 
+      return get.mylikes;
+    }
+});*/
+//
 Template.item.onCreated(function helloOnCreated() {
   // counter starts at 0
   this.discounter = new ReactiveVar(0);
